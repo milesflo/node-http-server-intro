@@ -1,30 +1,60 @@
-## Goal
+# Building a HTTP File Server
 
-The goal of this exercise is to write a simple, HTTP file server. Clone this repository and `cd` into the directory you cloned it in. All notes here are relative to this directory.
+Please read through this entire document first, then return to the beginning to complete the exercise.
 
-A skeleton server has been defined for you in `server.js` and should serve as the basis for your application. You will run your application with `node server.js` and visit it at `localhost:1337` in the browser
+## Setting the stage (What and Why)
 
-## Understanding the test cases
+The goal of this exercise is to write a simple, HTTP file server that serves files in the directory that it is run in. 
 
-To test that you have completed this exercise successfully, create an arbitrarily named file in this directory, like `cats_are_cool.html` with any content you want (e.g. `<html><body><h1>Cats are cool</h1></body></html>`) and make sure it works when you request it via `localhost:1337/cars_are_cool.html`.
+## Educational Objectives
 
-## Recommended Approach
+- List and explain common HTTP status codes
+- Describe that HTTP requests are not encrypted
+- Explain that HTTP requests are strings sent across a network
+- Describe that HTTP responses are strings sent across a network
+- Start a simple server using the `http` module
+- Use the `http` module to interact with the Web using the HTTP protocol
 
-1. Read everything until "The next levels" in its entirety.
-1. Start by creating an `index.html` file with valid HTML inside of it, and seeing if you can get that to be served by node (`localhost:1337/index.html`).
-1. Repeat what you did with `index.html` with some other file like, `about.html`.
-1. Use what you've done and "Things to use in this exercise" to figure out a general way to handle requests for files in this directory.
+## Key terms:
 
+- `http` npm module
+- server
+- client
+- path
 
-## Things to use in this exercise
+## Educational Activities
 
-* [`req.url`](https://nodejs.org/api/http.html#http_message_url) - allows you to see the relative part of the URL the user hit (e.g. `/foo` in `http://google.com/foo`)
-* [`fs.readFile`](https://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback)
+This [guide](http://geekexplains.blogspot.com/2008/06/whats-http-explain-http-request-and.html) provides a simple and concise rundown of HTTP. The appropriate level to understand is:
 
-## Next levels
+  1. An HTTP request contains a [URI](https://danielmiessler.com/study/url_vs_uri/), headers, and body.
+  1. An HTTP response contains a [status code](https://www.flickr.com/photos/girliemac/sets/72157628409467125/), headers, and body.
 
-1. Add links between the pages you have added locally.
+These concepts will be revisited in more detail. For now if you would like to see what this looks like in reality, open up Chrome's inspector panel, click on the "Network" tab, and refresh the page, click on any request that shows up and you will be shown the shared ("General" section) information, Response Headers, and Request Headers.
 
-1. If a user provides [query string](http://en.wikipedia.org/wiki/Query_string) as part of the URL make the response a page consisting just of the query params (fields and values). [`url.parse`](https://nodejs.org/docs/latest/api/url.html#url_url_parse_urlstr_parsequerystring_slashesdenotehost) may be helpful.
+Recall the generic model we are taking for [client and server](http://www.logicalposition.com/couch/uploads/image/blog-articles/how-the-web-works/http.png) with respect to HTTP requests and responses. In our case, the server will not be a separate physical machine (for now), but will instead be your laptop, `localhost`.
 
-1. Generally, if a user requests a page that does not exist, a `404 Not Found` response will be issued by the server and a fun page will be rendered. For a good example of this checkout [Github's 404 page](https://github.com/asdhasdasd). Add this functionality to your server, so that any arbitrary request to a non-existant resource returns a [404 HTTP status code](https://www.flickr.com/photos/girliemac/6508022985), regardless of if it has a query string or not.
+Complete the [Coding Tasks](coding_tasks.md) for this lesson.
+
+## Reflect: Self-asses
+
+Go to the "Objectives" section of this README. Go through each one and ask yourself:
+
+- Have I completed this objective?
+- What concrete evidence do I have that I've completed the objective?
+
+Go to the "Key Terms" section of this README. For each word, ask yourself:
+
+- What is my explanation for this term?
+
+If you haven't completed an objective, or you can't define a term, take a few minutes to try to fill in any gaps.
+
+## Reflect: Ask new questions
+
+What new questions do you have now that you've gone through this exercise?
+
+List at least 4 here:
+
+1. 
+1. 
+1. 
+1. 
