@@ -4,7 +4,9 @@ Please read through this entire document first, then return to the beginning to 
 
 ## Setting the stage (What and Why)
 
-The goal of this exercise is to write a simple, HTTP file server that serves files in the directory that it is run in. 
+The goal of this exercise is to write a simple, HTTP file server that serves files in the directory that it is run in.
+
+This task is meant to integrate an understanding of `fs` with `http`. In order to serve static files from a machine, access to the file system is required, in order to do it over the web, HTTP is required. The why behind this activity is that building the server yourself and spending time "in the dirt" with `req` and `res` will help strengthen your understanding of their usage in the context of Express.
 
 ## Educational Objectives
 
