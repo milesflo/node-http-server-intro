@@ -1,9 +1,14 @@
 var http = require('http');
-var fs = require('fs');
+var fs   = require('fs');
 
-var handleRequest = function (request, response) {
+var server = null;
+
+function handleRequest(req, resp) {
+
 };
 
-var server = http.createServer(handleRequest);
+server = http.createServer(handleRequest);
 
-server.listen(1337);
+server.listen(1337, function() {
+	console.log("I'm listening on port 8000...")
+});
