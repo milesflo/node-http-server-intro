@@ -1,62 +1,28 @@
-# Building a HTTP File Server
+# node-http-file-server
+In this exercise, you'll use the `fs` module and the `http` module to create an HTTP file server.
 
-Please read through this entire document first, then return to the beginning to complete the exercise.
+## Setup
+- Fork and clone this repository. A skeleton server has been defined for you in [`server.js`](server.js) and should serve as the basis for your application. 
+- Start your server with the command `node server.js`.
 
-## Setting the stage (What and Why)
+## Instructions
+- Navigate in a browser to `localhost:1337`.
+- Since there is no code in the `handleRequest` function, nothing happens!
+- Add code inside of `handleRequest` that will display the words "I just sent a response". Read about the method [`res.write`](https://nodejs.org/api/http.html#http_response_write_chunk_encoding_callback) and [`res.end`](https://nodejs.org/api/http.html#http_response_end_data_encoding_callback)
+- Add a file named `index.html` to your repository.
+- Add some text inside of `index.html`.
+- Write the code that will serve `index.html` when visiting `http://localhost:1337/index.html`.
 
-The goal of this exercise is to write a simple, HTTP file server that serves files in the directory that it is run in.
 
-This task is meant to integrate an understanding of `fs` with `http`. In order to serve static files from a machine, access to the file system is required, in order to do it over the web, HTTP is required. The why behind this activity is that building the server yourself and spending time "in the dirt" with `req` and `res` will help strengthen your understanding of their usage in the context of Express.
 
-## Educational Objectives
+- Repeat what you did with `index.html` and create another file, `about.html`. Again, make it fun, the content does not matter.
+- Figure out how to get `server.js` to server `about.html` in addition to `index.html`.
+- Use what you've done with `index.html` and `about.html` to figure out a general way to handle requests for files in this directory. Checkout the properties [`req.url`](https://nodejs.org/api/http.html#http_message_url) and [`fs.readFile`](https://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback)
 
-- List and explain common HTTP status codes
-- Describe that HTTP requests are not encrypted
-- Explain that HTTP requests are strings sent across a network
-- Describe that HTTP responses are strings sent across a network
-- Start a simple server using the `http` module
-- Use the `http` module to interact with the Web using the HTTP protocol
 
-## Key terms:
+## Bonus
+- Add links between the pages you have added locally.
+- Add CSS to this project.
+- Output the [query string](http://en.wikipedia.org/wiki/Query_string) of a URL on the reponse page.
 
-- `http` npm module
-- server
-- client
-- path
-
-## Educational Activities
-
-This [guide](http://geekexplains.blogspot.com/2008/06/whats-http-explain-http-request-and.html) provides a simple and concise rundown of HTTP. The appropriate level to understand is:
-
-  1. An HTTP request contains a [URI](https://danielmiessler.com/study/url_vs_uri/), headers, and body.
-  1. An HTTP response contains a [status code](https://www.flickr.com/photos/girliemac/sets/72157628409467125/), headers, and body.
-
-These concepts will be revisited in more detail. For now if you would like to see what this looks like in reality, open up Chrome's inspector panel, click on the "Network" tab, and refresh the page, click on any request that shows up and you will be shown the shared ("General" section) information, Response Headers, and Request Headers.
-
-Recall the generic model we are taking for [client and server](http://www.logicalposition.com/couch/uploads/image/blog-articles/how-the-web-works/http.png) with respect to HTTP requests and responses. In our case, the server will not be a separate physical machine (for now), but will instead be your laptop, `localhost`.
-
-Complete the [Coding Tasks](coding_tasks.md) for this lesson.
-
-## Reflect: Self-asses
-
-Go to the "Objectives" section of this README. Go through each one and ask yourself:
-
-- Have I completed this objective?
-- What concrete evidence do I have that I've completed the objective?
-
-Go to the "Key Terms" section of this README. For each word, ask yourself:
-
-- What is my explanation for this term?
-
-If you haven't completed an objective, or you can't define a term, take a few minutes to try to fill in any gaps.
-
-## Reflect: Ask new questions
-
-What new questions do you have now that you've gone through this exercise?
-
-List at least 4 here:
-
-1. 
-1. 
-1. 
-1. 
+1. Create a `404 Not Found` page when a file isn't found. response. As an example, view [Github's 404 page](https://github.com/asdhasdasd). With this new inspiration, add this functionality to your server. Any arbitrary request to a non-existant resource return could return something like these [404 cat pictures](https://www.flickr.com/photos/girliemac/6508022985).
