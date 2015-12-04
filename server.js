@@ -1,13 +1,14 @@
 var http = require('http');
 var fs   = require('fs');
 
-var server = null;
-
 function handleRequest(req, res) {
-
+  res.setHeader("Content-Type", "text/html");
+  res.statusCode = 200;
+  res.write("<h1>Hello, World!</h1>");
+  res.end();
 };
 
-server = http.createServer(handleRequest);
+var server = http.createServer(handleRequest);
 
 server.listen(8000, function() {
 	console.log("I'm listening on port 8000...")
