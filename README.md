@@ -20,4 +20,4 @@ In this exercise, you'll use the `fs` module and the `http` module to create an 
 - When visiting `http://localhost:1337`, serve an HTML page with links to all pages. 
 - Add CSS to all pages.
 - Create a `404 Not Found` page for any route that's not `/`, `/index.html`, or `/about.html`. You could use an appropriate image from [cat status codes](https://http.cat/).
-- Refactor your code to find a general way to handle requests for all files in this directory. Checkout the property [`req.url`].
+- Refactor your code to find a general way to handle requests for all files in this directory. Checkout the property [`req.url`](https://nodejs.org/api/http.html#http_message_url).
