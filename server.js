@@ -1,15 +1,17 @@
-var http = require('http');
-var fs   = require('fs');
+var http   = require('http');
+var routes = require('./routes.js');
 
 function handleRequest(req, res) {
-  res.setHeader("Content-Type", "text/html");
-  res.statusCode = 200;
-  res.write("<h1>Hello, World!</h1>");
-  res.end();
+  if (routes[req.url]){
+    routes[req.url](req,res);
+  }  else {
+    res.statusCode = (404);
+    res.end("This doesn't exist, buddy");
+  }
 };
 
 var server = http.createServer(handleRequest);
-
-server.listen(8000, function() {
-	console.log("I'm listening on port 8000...")
+var PORT = 8000;
+server.listen(PORT, function() {
+	console.log("I'm listening on port: [" + PORT + "]");
 });
